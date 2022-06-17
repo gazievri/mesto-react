@@ -18,13 +18,13 @@ const Main = (props) => {
       setUserAvatar(res.avatar)
     })
     .catch(err => console.log(err));
-  }, [userName, userAvatar, userDescription]);
+  }, []);
 
   React.useEffect(() => {
     api.getCards()
     .then(resolve => setDataCards(resolve))
     .catch(err => console.log(err));
-  }, [])
+  }, []);
 
   return (
     <main>
@@ -43,7 +43,7 @@ const Main = (props) => {
       <section className="elements">
         {cards.map(item => {
           return(
-            <Card key={item.id} card={item} onCardClick={props.onCardClick} />
+            <Card key={item._id} card={item} onCardClick={props.onCardClick} />
           )
         })}
       </section>

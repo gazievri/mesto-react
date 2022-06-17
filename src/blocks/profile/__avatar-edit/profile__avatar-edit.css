@@ -10,6 +10,7 @@
   padding: 0;
   margin: 0;
   position: absolute;
+  z-index: 5;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
@@ -21,3 +22,11 @@
   opacity: 1;
   cursor: pointer;
 }
+
+@media (max-width: 920px) {
+  .profile__avatar-edit {
+    left: 202px;
+  }
+}
+
+
