@@ -58,20 +58,12 @@ export default class Api {
     .then(this._checkResponse);
   }
 
-  sendLike(data) {
-    return fetch(`${this._url}cards/${data._id}/likes`, {
-      method: 'PUT',
+  changeLikeCardStatus(cardId, like) {
+    return fetch(`${this._url}cards/${cardId}/likes`, {
+      method: like ? 'PUT' : 'DELETE',
       headers: this._headers,
     })
-    .then(this._checkResponse);
-  }
-
-  deleteLike(data) {
-    return fetch(`${this._url}cards/${data._id}/likes`, {
-      method: 'DELETE',
-      headers: this._headers,
-    })
-    .then(this._checkResponse);
+      .then(this._checkResponse)
   }
 
   _checkResponse(res) {

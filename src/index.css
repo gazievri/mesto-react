@@ -23,6 +23,7 @@
 @import url(./blocks/element/__title-like/element__title-like.css);
 @import url(./blocks/element/__title-text/element__title-text.css);
 @import url(./blocks/element/__bin/element__bin.css);
+@import url(./blocks/element/__bin/_hidden/element__bin_hidden.css);
 @import url(./blocks/element/__title-like/_active/element__title-like_active.css);
 @import url(./blocks/element/__title-like-num/element__title-like-num.css);
 @import url(./blocks/element/__like-box/element__like-box.css);

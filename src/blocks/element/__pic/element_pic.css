@@ -9,8 +9,8 @@
   background-position: center;
 }
 
-.element__pic:hover {
+/* .element__pic:hover {
   cursor: pointer;
   transform-origin: bottom;
   transform: scale(1.1);
-}
+} */
