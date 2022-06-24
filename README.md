@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+## ![vectorpaint](https://user-images.githubusercontent.com/96244317/174490015-482712ff-3854-4d18-9e34-401266198322.svg) - портал для обмена фотографиями
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Проект [**Mesto**](https://gazievri.github.io/mesto-react/) представляет собой интерактивную интернет страницу, с помощью который пользователи могут обмениваться фотографиями своих люимых мест для путешествий (и не только), оценивать загруженные фотографии. 
+Пользователю доступен следующий функционал: 
+- загрузка на сайт изображений;
+- удаление с сайта своих ранее загруженых изображений;
+- редактирование своего профиля (имя, профессия, аватар);
+- оценка своих и чужих изображений на сайте с помощью клавиши Like.
 
-## Available Scripts
+Проект **Mesto** доступен по [ссылке](https://gazievri.github.io/mesto-react/).
 
-In the project directory, you can run:
+Наглядно c функционалом проекта **Mesto** можно познакомиться в видео:
 
-### `npm start`
+https://user-images.githubusercontent.com/96244317/174491041-6220bfc0-606c-4b6b-a266-5b92ab140cd8.mp4
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Технологический стек
+При создании проекта использовался следующий стек технологий: HTML, CSS, JS, React.js.
+Для сборки проекта использовался Webpack. Соблюдались принципы объектно-ориентированного программирования. При верстке использовался БЭМ. 
+В проекте реализованы следующие возможности: 
+- валидация данных в форме с помощью JS;
+- загрузка и выгрузка данных на сервер.
 
-### `npm test`
+*Основное отличие данного проекта от более [раннего](https://github.com/gazievri/mesto.git) заключается в том, что этот проект выполенен с использованием фреймворка React.js.*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Работа с проектом
+Познакомиться с опубликованным проектом можно с помощью [ссылки](https://gazievri.github.io/mesto-react/).
+Для того, чтобы клонировать исходный код к себе на компьютер и запустить проект локально, вам понадобится установить на ваш компьютер [**Node.js**](https://nodejs.org/en/download/). 
 
-### `npm run build`
+Для запуска проекта, пожалуйста, выполните следующие действия:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Склонировать проект на ваш компьютер с [Github](https://github.com/gazievri/mesto-react.git) с помощью команды:
+```
+git clone https://github.com/gazievri/mesto-react.git
+```
+2. Установить Create React App: 
+```
+npm install -g create-react-app
+```
+3. Запустить проект: 
+```
+npm start
+```
+4. Для сборки проекта в продакшн используйте команду: 
+```
+npm run build
+```
+5. Для деплоя проекта на GitPages используйте команду:
+```
+npm run deploy
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Планы по развитию проекта
+1. Добавить всплывающее окно для подтверждения удаления карточек.
+2. Добавить возможность выбора темы оформления (ночная/дневная).
+3. Произвести рефакторинг кода. 
