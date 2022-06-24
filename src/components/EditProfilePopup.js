@@ -11,7 +11,7 @@ const EditProfilePopup = ({isOpen, onClose, onUpdateUser}) => {
   React.useEffect(() => {
     setValueName(currentUser.name);
     setValueDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   function handleChangeName(e) {
     setValueName(e.target.value);
@@ -23,7 +23,6 @@ const EditProfilePopup = ({isOpen, onClose, onUpdateUser}) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Передаём значения управляемых компонентов во внешний обработчик
     onUpdateUser({
       name,
       about: description,

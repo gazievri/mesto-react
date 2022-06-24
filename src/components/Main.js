@@ -10,8 +10,10 @@ const Main = ({ onEditAvatar, onAddPlace, onEditProfile, onCardClick, cards, onC
   return (
       <main>
         <section className="profile">
-          <div className="profile__avatar" style={{ backgroundImage: `url(${currentUser.avatar})` }} />
-          <button className="profile__avatar-edit" type="button" onClick={onEditAvatar} />
+          <div className="profile__avatar-block">
+            <div className="profile__avatar" style={{ backgroundImage: `url(${currentUser.avatar})` }} />
+            <button className="profile__avatar-edit" type="button" onClick={onEditAvatar} />
+          </div>
           <div className="profile__profile-info">
             <div className="profile__title-and-button">
               <h1 className="profile__title">{currentUser.name}</h1>

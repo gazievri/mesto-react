@@ -25,7 +25,7 @@
 
 @media (max-width: 920px) {
   .profile__avatar-edit {
-    left: 202px;
+    left: center;
   }
 }
 
