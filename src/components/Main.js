@@ -4,51 +4,27 @@ import { api } from '../utils/Api.js';
 import Card from './Card';
 
 
-const Main = (props) => {
+const Main = ({ onEditAvatar, onAddPlace, onEditProfile, onCardClick, cards, onCardLike, onCardDelete }) => {
   const currentUser = React.useContext(CurrentUserContext);
-  const [cards, setDataCards] = React.useState([]);
-
-  React.useEffect(() => {
-    api.getCards()
-    .then(resolve => setDataCards(resolve))
-    .catch(err => console.log(err));
-  }, []);
-
-  function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.changeLikeCardStatus(card._id, !isLiked)
-      .then((newCard) => {
-        setDataCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-      }
-    );
-  }
-
-  function handleCardDelete(card) {
-    const isOwn = card.owner._id === currentUser._id;
-    api.deleteCard(card)
-      .then(() => {
-        setDataCards((state) => state.filter(x => !(x === card))
-      )});
-  }
 
   return (
       <main>
         <section className="profile">
           <div className="profile__avatar" style={{ backgroundImage: `url(${currentUser.avatar})` }} />
-          <button className="profile__avatar-edit" type="button" onClick={props.onEditAvatar} />
+          <button className="profile__avatar-edit" type="button" onClick={onEditAvatar} />
           <div className="profile__profile-info">
             <div className="profile__title-and-button">
               <h1 className="profile__title">{currentUser.name}</h1>
               <p className="profile__subtitle">{currentUser.about}</p>
             </div>
-            <button className="profile__edit-button" type="button" aria-label="Редактировать профиль" onClick={props.onEditProfile} />
+            <button className="profile__edit-button" type="button" aria-label="Редактировать профиль" onClick={onEditProfile} />
           </div>
-          <button className="profile__add-button" type="button" onClick={props.onAddPlace} />
+          <button className="profile__add-button" type="button" onClick={onAddPlace} />
         </section>
         <section className="elements">
           {cards.map(item => {
             return(
-              <Card key={item._id} card={item} onCardClick={props.onCardClick} onCardLike={handleCardLike} onCardDelete={handleCardDelete} />
+              <Card key={item._id} card={item} onCardClick={onCardClick} onCardLike={onCardLike} onCardDelete={onCardDelete} />
             )
           })}
         </section>
