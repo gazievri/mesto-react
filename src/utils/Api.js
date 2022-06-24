@@ -71,8 +71,7 @@ export default class Api {
       return res.json();
     }
     return Promise.reject(`Error: ${res.status}`)
-}
-
+  }
 }
 
 export const api = new Api ({

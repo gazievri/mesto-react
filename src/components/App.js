@@ -7,11 +7,14 @@ import ImagePopup from './ImagePopup';
 import React from 'react';
 import { api } from '../utils/Api.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
+import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
+
 
 
 function App() {
 
-  const [currentUser, getUserInfo] = React.useState([]);
+  const [currentUser, getUserInfo] = React.useState({});
   const [isEditAvatarPopupOpen, setStateIsEditAvatarPopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setStateIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setStateIsAddPlacePopupOpen] = React.useState(false);
@@ -44,6 +47,19 @@ function App() {
     setSelectedCard(null);
   }
 
+  function handleUpdateUser(data) {
+    api.sendNewProfileData(data)
+    .then(res => getUserInfo(res));
+    closeAllPopups();
+  }
+
+  function handleUpdateAvatar(data) {
+    api.changeAvatar(data)
+    .then(res => getUserInfo(res));
+    closeAllPopups();
+    
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="body">
@@ -53,19 +69,9 @@ function App() {
               onEditAvatar={handleClickEditAvatar}
               onAddPlace={handleClickAddPlace}
               onEditProfile={handleClickEditProfile}
-              onCardClick={setSelectedCard}/>
+              onCardClick={setSelectedCard} />
             <Footer />
-            <PopupWithForm
-            title='Редактировать профиль'
-            name='profile-edit'
-            textSubmitBtn='Сохранить'
-            isOpen={isEditProfilePopupOpen}
-            onClose={closeAllPopups}>
-                <input className="popup__input popup__input_field_name" placeholder="Ваши имя и фамилия" type="text" name="name" id="name-input" required minLength={2} maxLength={40} />
-                <span className="popup__error-text name-input-error" />
-                <input className="popup__input popup__input_field_occupation" placeholder="Ваша работа" type="text" name="about" id="about-input" required minLength={2} maxLength={200} />
-                <span className="popup__error-text about-input-error" />
-            </PopupWithForm>
+            <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
             <PopupWithForm
             title='Новое место'
             name='new-card'
@@ -77,15 +83,7 @@ function App() {
                 <input className="popup__input popup__input_field_link" placeholder="Ссылка на картинку" type="url" name="link" id="link-input" required />
                 <span className="popup__error-text link-input-error" />
             </PopupWithForm>
-            <PopupWithForm
-            title='Обновить аватар'
-            name='avatar-edit'
-            textSubmitBtn='Сохранить'
-            isOpen={isEditAvatarPopupOpen}
-            onClose={closeAllPopups}>
-              <input className="popup__input popup__input_field_link" placeholder="Ссылка на картинку" type="url" name="avatar" id="avatarlink-input" required />
-              <span className="popup__error-text avatarlink-input-error" />
-            </PopupWithForm>
+            <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
             <PopupWithForm
             title='Вы уверены?'
             name='delete-confirm'
