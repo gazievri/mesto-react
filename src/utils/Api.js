@@ -1,5 +1,3 @@
-import { myToken } from './constants.js';
-
 export default class Api {
   constructor({ baseUrl, headers }) {
     this._url = baseUrl;
@@ -77,9 +75,7 @@ export default class Api {
 export const api = new Api ({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-41/',
   headers: {
-    authorization: myToken,
+    authorization: '6f7d4ee2-1133-493f-8dc5-cde7a586dd12',
     'Content-Type': 'application/json'
   }
 });
-
-
